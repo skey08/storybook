@@ -23,3 +23,9 @@ jobs:
       with:
         inlineScript: |
             az storage blob upload-batch --account-name ghstaticsitetest --auth-mode key -d '$web' -s .
+
+    # Azure logout
+    - name: logout
+      run: |
+            az logout
+      if: always()
