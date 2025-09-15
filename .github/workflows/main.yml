@@ -23,7 +23,7 @@ jobs:
       uses: azure/CLI@v1
       with:
         inlineScript: |
-            az logout az login az storage blob upload-batch --account-name ghstaticsitetest --auth-mode key -d '$web' -s .
+            az cache purge az logout az login az storage blob upload-batch --account-name ghstaticsitetest --auth-mode key -d '$web' -s .
 
     # Azure logout
     - name: logout
