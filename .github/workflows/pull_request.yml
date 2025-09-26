@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Show PR number
-        run: echo "Pull request number is ${{ github.event.pull_request.number }}"
+        run: npm run package ${{ github.event.pull_request.number }}
