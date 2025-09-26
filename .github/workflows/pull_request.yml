@@ -8,5 +8,8 @@ jobs:
   echo-pr-number:
     runs-on: ubuntu-latest
     steps:
+      - name: Install packages
+        run: npm install
+        
       - name: Show PR number
         run: npm run package ${{ github.event.pull_request.number }}
