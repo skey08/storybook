@@ -10,9 +10,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        
+
       - name: Install packages
         run: npm install
 
       - name: Show PR number
-        run: npm run package ${{ github.event.pull_request.number }}
+        env: 
+          NUMBER: ${{ github.event.pull_request.number }}
+        run: npm run package $NUMBER
