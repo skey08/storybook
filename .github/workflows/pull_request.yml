@@ -15,7 +15,7 @@ jobs:
         run: npm install
         
       - name: Branch name
-        run: echo running on branch github ref ${{github.ref}} github sha ${{github.sha.short}}
+        run: echo running on branch github ref ${{github.ref}} github sha ${{github.ref_name}}
 
       - name: Show PR number
         env: 
