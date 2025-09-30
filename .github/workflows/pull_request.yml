@@ -2,7 +2,7 @@ name: Echo Pull Request Number
 
 on:
   push:
-    branches: [ main ]
+    # branches: [ main ]
     
 jobs:
   echo-pr-number:
