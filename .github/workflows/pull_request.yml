@@ -13,22 +13,10 @@ jobs:
 
       - name: Install packages
         run: npm install
+      - name: Branch name
+        run: echo running on branch ${GITHUB_REF##*/}
 
-      - name: Show PR number
-        env: 
-          NUMBER: ${{ github.event.pull_request.number }}
-        run: npm run package $NUMBER
-
-  get_pr_info:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get PR Number using GitHub CLI
-        id: pr_number_cli
-        run: |
-          PR_NUMBER=$(gh pr view --json number -q .number || echo "")
-          echo "::set-output name=pr_number::$PR_NUMBER"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Echo Pull Request Number
-        if: steps.pr_number_cli.outputs.pr_number
-        run: echo "The PR number is ${{ steps.pr_number_cli.outputs.pr_number }}"
+      # - name: Show PR number
+      #   env: 
+      #     NUMBER: ${{ github.event.pull_request.number }}
+      #   run: npm run package $NUMBER
