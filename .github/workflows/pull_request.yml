@@ -1,8 +1,10 @@
 name: Echo Pull Request Number
 
 on:
-  push:
-    # branches: [ main ]
+  pull_request:
+    branches:
+      - main
+      - develop
     
 jobs:
   echo-pr-number:
