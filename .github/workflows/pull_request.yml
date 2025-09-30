@@ -1,7 +1,7 @@
 name: Echo Pull Request Number
 
 on:
-  pull_request:
+  push:
     branches: [ main ]
     
 jobs:
@@ -13,10 +13,11 @@ jobs:
 
       - name: Install packages
         run: npm install
+        
       - name: Branch name
         run: echo running on branch github ref ${{github.ref}} github head ref ${{github.head.ref}}
 
-      # - name: Show PR number
-      #   env: 
-      #     NUMBER: ${{ github.event.pull_request.number }}
-      #   run: npm run package $NUMBER
+      - name: Show PR number
+        env: 
+          NUMBER: ${{ github.event.pull_request.number }}
+        run: npm run package $NUMBER
