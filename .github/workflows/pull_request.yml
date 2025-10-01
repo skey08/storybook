@@ -18,6 +18,6 @@ jobs:
           state: open
   # This will echo "Your PR is 7", or be skipped if there is no current PR.
       - run: echo "Your PR is ${PR}"
-        if: success() && steps.findPr.outputs.number
+        # if: success() && steps.findPr.outputs.number
         env:
           PR: ${{ steps.findPr.outputs.pr }}
