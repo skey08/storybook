@@ -7,7 +7,7 @@ on:
     
 jobs:
   echo-pr-number:
-    runs-on: EntRunner_Grp_Dev
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
