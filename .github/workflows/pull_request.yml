@@ -1,9 +1,9 @@
 name: Echo Pull Request Number
 
 on:
-  pull_request:
+  push:
     branches:
-      - main
+      - pr-test-2
     
 jobs:
   echo-pr-number:
@@ -22,3 +22,13 @@ jobs:
         env: 
           NUMBER: ${{ github.event.pull_request.number }}
         run: npm run package $NUMBER
+        
+      - name: JWalton Method
+        uses: jwalton/gh-find-current-pr@master
+        id: findPr
+        with:
+          run: echo "Your PR is ${PR}"
+        if: success() && steps.findPr.outputs.number
+        env:
+          PR: ${{ steps.findPr.outputs.pr }}
+          
