@@ -1,13 +1,11 @@
-name: Echo Pull Request Number
+name: Echo Pull Request Number Manual
 
 on:
-  push:
-    branches:
-      - pr-test-2
+  workflow_dispatch:
     
 jobs:
   echo-pr-number:
-    runs-on: ubuntu-latest
+    runs-on: EntRunner_Grp_Dev
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -24,13 +22,3 @@ jobs:
         if: success() && steps.findPr.outputs.number
         env:
           PR: ${{ steps.findPr.outputs.pr }}
-
-      - name: Test1
-        id: t1
-        uses: Kaven-Universe/github-action-current-date-time@v1
-        with:
-          format: "YYYY_MM_DD_HH_mm"
-      # Use the output from the `t1` step
-      - name: Output1
-        run: |
-            echo "The time was ${{ steps.t1.outputs.time }}"
