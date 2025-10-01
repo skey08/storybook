@@ -11,15 +11,14 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-        # Find the PR associated with this push, if there is one.
       - name: Find PR From Push Action
         uses: jwalton/gh-find-current-pr@master
         id: findPr
         with:
           # Can be "open", "closed", or "all".  Defaults to "open".
           state: open
-      # This will echo "Your PR is 7", or be skipped if there is no current PR.
-      - run: echo "Your PR is ${PR}"
+      - name: Echo PR Number
+        run: echo "Your PR is ${PR}"
         if: steps.findPr.outputs.number
         env:
           PR: ${{ steps.findPr.outputs.pr }}
