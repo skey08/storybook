@@ -1,4 +1,4 @@
-name: Echo Pull Request Number
+name: Echo Pull Request Number Manual
 
 on:
   workflow_dispatch:
