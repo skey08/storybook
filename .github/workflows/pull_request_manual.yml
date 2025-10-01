@@ -1,7 +1,7 @@
 name: Echo Pull Request Number Manual
 
 on:
-  workflow_dispatch:
+  push:
     
 jobs:
   echo-pr-number:
